@@ -30,3 +30,4 @@ urlpatterns = [
     url(r'^accounts/logout/$', views.LogoutView.as_view(), name='logout', kwargs={'next_page': '/'}),
 ]
 
+
