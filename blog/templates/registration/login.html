@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="jumbotron">
+    <h2>Please Login:</h2>
+    <h3>(Must be SuperUser, please check with Yassin)</h3>
+
+    {% if form.errors %}
+        <p>You'r username and password didn't match! Please try again.</p>
+    {% endif %}
+{#        todo blog:login or login? and login come from where#}
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Login">
+{#            todo why hidden tyep and what is the next? (is it come from site/urls.py?)#}
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+    </div>
+{% endblock %}
