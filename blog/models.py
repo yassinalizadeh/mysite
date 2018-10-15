@@ -20,7 +20,6 @@ class Post(models.Model):
         return self.comments.filter(approved_comment=True)
 
     def unapproved_comments(self):
-
         return self.comments.filter(approved_comment=False)
 
     def get_absolute_url(self):
