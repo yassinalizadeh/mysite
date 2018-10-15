@@ -19,6 +19,9 @@ class Post(models.Model):
         # todo what is this comments
         return self.comments.filter(approved_comment=True)
 
+    def unapproved_comments(self):
+        return self.comments.filter(approved_comment=False)
+
     def get_absolute_url(self):
         # todo what is the get_absolute_url
         # todo i have to have post_detail.html

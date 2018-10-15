@@ -5,21 +5,22 @@
 
     {% for post in post_list %}
         <div class="post">
-        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-        <div class="date">
-{#            todo what is the post.published?#}
-            <p>Published on: {{ post.published|date:'D M Y' }}</p>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div class="date">
+    {#            todo what is the post.published?#}
+                <p>Published on: {{ post.published|date:'D M Y' }}</p>
 
 
-        </div>
-{#            todo what is the approve_comments.count?#}
-            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
-        
+            </div>
+    {#            todo what is the approve_comments.count?#}
+                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+            <br>
+            {% if post.unapproved_comments %}
+                <p>Unapproved Comments: {{ post.unapproved_comments.count }}</p>
+            {% endif %}
+
+
         </div>
     {% endfor %}
-
-
-
-
     </div>
 {% endblock %}
